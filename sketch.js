@@ -1,33 +1,16 @@
-/*
+var tree_posX;
 
-The Game Project
-
-1 - Background Scenery
-
-Use p5 drawing functions such as rect, ellipse, line, triangle and
-point to draw the scenery as set out in the code comments. The items
-should appear next to the text titles.
-
-Each bit of scenery is worth two marks:
-
-0 marks = not a reasonable attempt
-1 mark = attempted but it's messy or lacks detail
-2 marks = you've used several shape functions to create the scenery
-
-I've given titles and chosen some base colours, but feel free to
-imaginatively modify these and interpret the scenery titles loosely to
-match your game theme.
-
-
-WARNING: Do not get too carried away. If you're shape takes more than 5 lines
-of code to draw then you've probably over done it.
-
-
-*/
 
 function setup()
 {
 	createCanvas(1024, 576);
+	
+	tree_posX = 800;
+	cloud = {
+		posX : 180 ,
+		posY : 100 ,
+		scale : 1.2
+	}
 }
 
 function draw()
@@ -44,14 +27,24 @@ function draw()
 
 
 
-	//1. a cloud in the SKY
+	//1. a CLOUD in the SKY
 	//... add your code here
 	noStroke();
 	fill(255);
-	ellipse(180,100,60);
-	ellipse(210,90,60,80);
-	ellipse(240,95,50,60);
-	ellipse(270,100,50);
+	ellipse(cloud.posX,
+			cloud.posY,
+			60*cloud.scale);
+	ellipse(cloud.posX+30*cloud.scale,
+			cloud.posY - 10,
+			60*cloud.scale,
+			80*cloud.scale);
+	ellipse(cloud.posX+60*cloud.scale,
+			cloud.posY -5 ,
+			50*cloud.scale,
+			60*cloud.scale);
+	ellipse(cloud.posX+90*cloud.scale,
+			cloud.posY,
+			50*cloud.scale);
 
 
 
@@ -68,15 +61,13 @@ function draw()
 	//3. a TREE
 	//... add your code here
 	noStroke();
-	fill(255);
-	text("tree", 800, 346);
 	fill(128,113,83);
-	rect(800,330,40,105);
+	rect(tree_posX,330,40,105);
 	fill(58, 95, 11 );
-	ellipse(780,320,70);
-	ellipse(820,340,70);
-	ellipse(860,320,70);
-	ellipse(820,290,70);
+	ellipse(tree_posX-20,320,70);
+	ellipse(tree_posX+20,340,70);
+	ellipse(tree_posX+60,320,70);
+	ellipse(tree_posX+20,290,70);
 
 
 
@@ -117,5 +108,12 @@ function draw()
 	fill(255,0,0);
 	ellipse(400,380,15,20);
 	ellipse(407,380,15,20);
+
+
+
+	//   //MOON//    //
+	noStroke();
+	fill(169,169,169);
+	ellipse(800,100,80);
 	
 }
