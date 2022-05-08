@@ -1,11 +1,18 @@
-var tree_posX;
+
 
 
 function setup()
 {
 	createCanvas(1024, 576);
 	
-	tree_posX = 800;
+	
+
+	tree = {
+		posX : 820,
+		Size : 1.5,
+		hight : 3
+	}
+
 	cloud = {
 		posX : 180 ,
 		posY : 100 ,
@@ -17,13 +24,6 @@ function draw()
 {
 	//fill the sky blue
 	background(48,25,52); 
-
-
-
-	//draw some GREEN GROUND
-	noStroke();
-	fill(0,155,0);
-	rect(0, 432, 1024, 144); 
 
 
 
@@ -62,13 +62,30 @@ function draw()
 	//... add your code here
 	noStroke();
 	fill(128,113,83);
-	rect(tree_posX,330,40,105);
+	ellipse(tree.posX,
+			410,
+			40*tree.Size,
+			125*tree.hight);
 	fill(58, 95, 11 );
-	ellipse(tree_posX-20,320,70);
-	ellipse(tree_posX+20,340,70);
-	ellipse(tree_posX+60,320,70);
-	ellipse(tree_posX+20,290,70);
+	ellipse(tree.posX-40,
+			317-10*tree.hight,
+			70*tree.Size);
+	ellipse(tree.posX,
+			340-10*tree.hight,
+			70*tree.Size);
+	ellipse(tree.posX+40,
+			317-10*tree.hight,
+			70*tree.Size);
+	ellipse(tree.posX,
+			290-10*tree.hight,
+			70*tree.Size);
 
+
+
+	//draw some GREEN GROUND
+	noStroke();
+	fill(0,155,0);
+	rect(0, 432, 1024, 144); 
 
 
 
