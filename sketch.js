@@ -33,7 +33,7 @@ function setup()
 function draw()
 {
 	//fill the sky blue
-	background(100, 155, 255); 
+	background(48,25,52); 
 
 
 
